@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. REPRODUCCIÓN AUTOMÁTICA / MANUAL DE SAFAERA (1:45 = 105s)
+  // 1. CONTROL DE AUDIO (SAFAERA DESDE EL MINUTO 1:45 = 105 SEGUNDOS)
   const bgMusic = document.getElementById("bgMusic");
   const musicToggleBtn = document.getElementById("musicToggleBtn");
   const musicIcon = document.getElementById("musicIcon");
@@ -36,23 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Activa reproducción con el primer toque en pantalla si el navegador bloquea autoplay
-  const handleFirstInteraction = () => {
+  // Primer toque en la pantalla inicia el audio si el navegador bloqueó el autoplay
+  const handleFirstTouch = () => {
     if (bgMusic.paused) {
       playMusic();
     }
-    document.removeEventListener("click", handleFirstInteraction);
-    document.removeEventListener("touchstart", handleFirstInteraction);
+    document.removeEventListener("click", handleFirstTouch);
+    document.removeEventListener("touchstart", handleFirstTouch);
   };
-  document.addEventListener("click", handleFirstInteraction);
-  document.addEventListener("touchstart", handleFirstInteraction);
+  document.addEventListener("click", handleFirstTouch);
+  document.addEventListener("touchstart", handleFirstTouch);
 
-  // 2. PÉTALOS FLOTANTES
+  // 2. PÉTALOS FLOTANTES DE FONDO
   const petalsContainer = document.getElementById("petals-container");
   const petalColors = ["#fcd7e1", "#d8c5f2", "#bce3c5", "#fde2b6", "#cbe3f7"];
 
   function createPetal() {
-    if (petalsContainer.children.length > 18) return;
+    if (petalsContainer.children.length > 16) return;
     const petal = document.createElement("div");
     petal.classList.add("petal");
     
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setInterval(createPetal, 500);
 
-  // 3. TOAST Y CONFETTI (FLORES Y FOTOS)
+  // 3. MENSAJES DE FLORES Y FOTOS (TOAST Y CONFETTI)
   const toastNote = document.getElementById("toastNote");
 
   const flowerMessages = {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const photoMessages = {
     "photo1": "📸 ¡Qué foto tan linda! Siempre con la mejor sonrisa ✨",
     "photo2": "🩺 ¡La doctora y camillera más dedicada de todas! 💪",
-    "photo3": "✨ Momentos únicos e inolvidables junto a ti 🌸",
+    "photo3": "✨ Momentos geniales e inolvidables junto a ti 🌸",
     "photo4": "💖 ¡Nunca dejes de brillar, Vanessa!"
   };
 

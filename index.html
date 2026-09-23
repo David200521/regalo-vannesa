@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Para Vanessa 🌿🌸</title>
   
+  <!-- Tipografías de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-  <!-- Elemento de Audio en segundo plano -->
-  <audio id="bgMusic" loop preload="metadata">
+  <!-- Reproductor de Audio (Safaera) -->
+  <audio id="bgMusic" loop preload="auto">
     <source src="https://ia801503.us.archive.org/15/items/bad-bunny-safaera/Bad%20Bunny%20-%20Safaera.mp3" type="audio/mpeg">
   </audio>
 
@@ -25,37 +29,38 @@
     <span id="musicText" class="music-text">Safaera 🔊</span>
   </button>
 
+  <!-- Pétalos flotantes de fondo -->
   <div id="petals-container"></div>
 
-  <!-- 4 Plantillas de Fotos en las Esquinas -->
+  <!-- 4 Fotos visibles en las esquinas por encima de la tarjeta -->
   <div class="photo-templates-container">
     <div class="photo-template top-left" id="photo1">
       <div class="photo-frame">
-        <img src="doctora.jpg" alt="Foto Vanessa 1">
+        <img src="foto1.jpg" alt="Foto Vanessa 1">
         <div class="frame-decor">🌸</div>
       </div>
     </div>
     <div class="photo-template top-right" id="photo2">
       <div class="photo-frame">
-        <img src="paz.jpg" alt="Foto Vanessa 2">
+        <img src="foto2.jpg" alt="Foto Vanessa 2">
         <div class="frame-decor">🩺</div>
       </div>
     </div>
     <div class="photo-template bottom-left" id="photo3">
       <div class="photo-frame">
-        <img src="rata.jpg" alt="Foto Vanessa 3">
+        <img src="foto3.jpg" alt="Foto Vanessa 3">
         <div class="frame-decor">✨</div>
       </div>
     </div>
     <div class="photo-template bottom-right" id="photo4">
       <div class="photo-frame">
-        <img src="ratica.jpg" alt="Foto Vanessa 4">
+        <img src="foto4.jpg" alt="Foto Vanessa 4">
         <div class="frame-decor">💖</div>
       </div>
     </div>
   </div>
 
-  <!-- Tarjeta Principal -->
+  <!-- Tarjeta Principal Glassmorphism -->
   <main class="card">
     <span class="badge">✨ Un detalle especial ✨</span>
     
@@ -64,6 +69,7 @@
       <h1 class="main-title">Para mi amiga la camillera más linda 🌸</h1>
     </header>
 
+    <!-- Ramo de Flores SVG Multicolores -->
     <div class="bouquet-wrapper" id="bouquetContainer">
       <div class="hint-tap">Toca las flores o las fotos 👆✨</div>
       
@@ -74,6 +80,7 @@
           </filter>
         </defs>
 
+        <!-- Tallos -->
         <g class="stems" stroke="#8cb89c" stroke-width="3.5" stroke-linecap="round">
           <path d="M150,340 C145,280 120,220 90,170" />
           <path d="M150,340 C148,270 135,200 120,130" />
@@ -82,6 +89,7 @@
           <path d="M150,340 C155,280 180,220 210,170" />
         </g>
 
+        <!-- Hojas -->
         <g fill="#9fcbb2" opacity="0.85">
           <path d="M135,260 C110,250 95,230 105,215 C120,210 135,235 135,260 Z"/>
           <path d="M165,260 C190,250 205,230 195,215 C180,210 165,235 165,260 Z"/>
@@ -89,6 +97,7 @@
           <path d="M160,210 C180,190 200,185 188,170 C172,170 162,190 160,210 Z"/>
         </g>
 
+        <!-- Lazo -->
         <g class="ribbon">
           <path d="M130,310 Q150,325 170,310 Q160,335 130,310 Z" fill="#d08c9f"/>
           <path d="M150,318 C140,345 125,365 115,370 C125,355 142,335 148,320 Z" fill="#b87386"/>
@@ -96,6 +105,7 @@
           <circle cx="150" cy="318" r="6" fill="#f3d4dd"/>
         </g>
 
+        <!-- Flores -->
         <g class="flower-group" id="fl-pink" transform="translate(85, 160)">
           <circle cx="0" cy="0" r="28" fill="#fcd7e1" filter="url(#soft-shadow)"/>
           <circle cx="0" cy="0" r="21" fill="#f8b6ce"/>
@@ -151,8 +161,10 @@
       </svg>
     </div>
 
-    <div id="toastNote" class="toast-note">¡Toca una flor, una foto o pon música!</div>
+    <!-- Toast Informativo -->
+    <div id="toastNote" class="toast-note">¡Toca una flor, una foto o escucha música!</div>
 
+    <!-- Botones de Acción -->
     <div class="actions">
       <button class="btn btn-primary" id="btnLetter">
         <span class="btn-icon">💌</span> Carta para ti
@@ -163,16 +175,17 @@
     </div>
   </main>
 
+  <!-- Modal Carta Especial -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-card">
       <button class="modal-close" id="btnCloseModal">&times;</button>
       <div class="modal-header">
         <span class="modal-icon">🩺🌸</span>
-        <h2>Para la MEJOR CAMILLERA Dra. Vanessa</h2>
+        <h2>Para la mejor Dra. Vanessa</h2>
       </div>
       <div class="modal-body">
         <p>Vanessa,</p>
-        <p>Gracias menol por el favor , se que todo lo que te propongas lo vas a lograr mi amiga la camillera linda</p>
+        <p>Quería tener este pequeño detalle contigo para sacarte una sonrisa. Tu dedicación, empatía y la energía linda que transmites todos los días en el hospital te hacen única.</p>
         <p>¡Sigue brillando siempre y nunca olvides lo increíble que eres en todo lo que haces!</p>
         <p class="signature">Con mucho cariño y admiración. ✨</p>
       </div>
