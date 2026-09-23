@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Para Vanessa 🌿🌸</title>
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Contenedor de pétalos flotantes -->
+  <div id="petals-container"></div>
+
+  <!-- Tarjeta Principal Glassmorphism -->
+  <main class="card">
+    <span class="badge">✨ Un detalle especial ✨</span>
+    
+    <header class="card-header">
+      <p class="sub-title">Dra. Vanessa</p>
+      <h1 class="main-title">Para mi amiga la camillera más linda 🌸</h1>
+    </header>
+
+    <!-- Ramo de Flores SVG Multicolores -->
+    <div class="bouquet-wrapper" id="bouquetContainer">
+      <div class="hint-tap">Toca las flores 👆✨</div>
+      
+      <svg class="bouquet-svg" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+          </filter>
+        </defs>
+
+        <!-- TALLOS Y HOJAS -->
+        <g class="stems" stroke="#8cb89c" stroke-width="3.5" stroke-linecap="round">
+          <path d="M150,340 C145,280 120,220 90,170" />
+          <path d="M150,340 C148,270 135,200 120,130" />
+          <path d="M150,340 C150,260 150,190 150,110" />
+          <path d="M150,340 C152,270 165,200 180,130" />
+          <path d="M150,340 C155,280 180,220 210,170" />
+        </g>
+
+        <!-- Hojas de adorno (Verde pastel / Menta) -->
+        <g fill="#9fcbb2" opacity="0.85">
+          <path d="M135,260 C110,250 95,230 105,215 C120,210 135,235 135,260 Z"/>
+          <path d="M165,260 C190,250 205,230 195,215 C180,210 165,235 165,260 Z"/>
+          <path d="M140,210 C120,190 100,185 112,170 C128,170 138,190 140,210 Z"/>
+          <path d="M160,210 C180,190 200,185 188,170 C172,170 162,190 160,210 Z"/>
+        </g>
+
+        <!-- LAZO DEL RAMO -->
+        <g class="ribbon">
+          <path d="M130,310 Q150,325 170,310 Q160,335 130,310 Z" fill="#d08c9f"/>
+          <path d="M150,318 C140,345 125,365 115,370 C125,355 142,335 148,320 Z" fill="#b87386"/>
+          <path d="M150,318 C160,345 175,365 185,370 C175,355 158,335 152,320 Z" fill="#b87386"/>
+          <circle cx="150" cy="318" r="6" fill="#f3d4dd"/>
+        </g>
+
+        <!-- FLORES INTERACTIVAS -->
+        <!-- 1. Rosa Rosa Pastel (Izquierda abajo) -->
+        <g class="flower-group" id="fl-pink" transform="translate(85, 160)">
+          <circle cx="0" cy="0" r="28" fill="#fcd7e1" filter="url(#soft-shadow)"/>
+          <circle cx="0" cy="0" r="21" fill="#f8b6ce"/>
+          <circle cx="-2" cy="-2" r="14" fill="#f492b4"/>
+          <circle cx="0" cy="0" r="7" fill="#e86b93"/>
+        </g>
+
+        <!-- 2. Lavanda / Violeta Pastel (Arriba Izquierda) -->
+        <g class="flower-group" id="fl-purple" transform="translate(115, 115)">
+          <g fill="#d8c5f2" filter="url(#soft-shadow)">
+            <circle cx="0" cy="-18" r="11"/>
+            <circle cx="16" cy="-8" r="11"/>
+            <circle cx="14" cy="12" r="11"/>
+            <circle cx="-14" cy="12" r="11"/>
+            <circle cx="-16" cy="-8" r="11"/>
+          </g>
+          <circle cx="0" cy="0" r="10" fill="#fff5d6"/>
+        </g>
+
+        <!-- 3. Menta / Peonía Verde Pastel (Centro Superior) -->
+        <g class="flower-group" id="fl-mint" transform="translate(150, 85)">
+          <g fill="#bce3c5" filter="url(#soft-shadow)">
+            <ellipse cx="0" cy="-16" rx="10" ry="14"/>
+            <ellipse cx="15" cy="-5" rx="10" ry="14" transform="rotate(72 15 -5)"/>
+            <ellipse cx="9" cy="14" rx="10" ry="14" transform="rotate(144 9 14)"/>
+            <ellipse cx="-9" cy="14" rx="10" ry="14" transform="rotate(216 -9 14)"/>
+            <ellipse cx="-15" cy="-5" rx="10" ry="14" transform="rotate(288 -15 -5)"/>
+          </g>
+          <circle cx="0" cy="0" r="11" fill="#e2f5e7"/>
+          <circle cx="0" cy="0" r="6" fill="#88c399"/>
+        </g>
+
+        <!-- 4. Girasol / Melocotón Creado (Arriba Derecha) -->
+        <g class="flower-group" id="fl-peach" transform="translate(185, 115)">
+          <g fill="#fde2b6" filter="url(#soft-shadow)">
+            <circle cx="0" cy="-18" r="10"/>
+            <circle cx="16" cy="-8" r="10"/>
+            <circle cx="14" cy="12" r="10"/>
+            <circle cx="-14" cy="12" r="10"/>
+            <circle cx="-16" cy="-8" r="10"/>
+          </g>
+          <circle cx="0" cy="0" r="11" fill="#f0ab65"/>
+        </g>
+
+        <!-- 5. Azul Cielo Pastel (Derecha Abajo) -->
+        <g class="flower-group" id="fl-blue" transform="translate(210, 160)">
+          <g fill="#cbe3f7" filter="url(#soft-shadow)">
+            <circle cx="0" cy="-16" r="11"/>
+            <circle cx="15" cy="-5" r="11"/>
+            <circle cx="10" cy="13" r="11"/>
+            <circle cx="-10" cy="13" r="11"/>
+            <circle cx="-15" cy="-5" r="11"/>
+          </g>
+          <circle cx="0" cy="0" r="9" fill="#fff3c4"/>
+        </g>
+
+        <!-- 6. Flor Coral Suave (Centro Ramo) -->
+        <g class="flower-group" id="fl-coral" transform="translate(150, 155)">
+          <circle cx="0" cy="0" r="24" fill="#ffcfc6" filter="url(#soft-shadow)"/>
+          <circle cx="0" cy="0" r="17" fill="#fba192"/>
+          <circle cx="0" cy="0" r="9" fill="#fff0dd"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Mensajes Interactivos de las flores (Toast) -->
+    <div id="toastNote" class="toast-note">¡Toca una flor para ver un mensaje!</div>
+
+    <!-- Botones de Acción -->
+    <div class="actions">
+      <button class="btn btn-primary" id="btnLetter">
+        <span class="btn-icon">💌</span> Carta para ti
+      </button>
+      <button class="btn btn-secondary" id="btnHug">
+        <span class="btn-icon">✨</span> Abrazo Virtual
+      </button>
+    </div>
+  </main>
+
+  <!-- Modal / Pop-up de Carta Especial -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="btnCloseModal">&times;</button>
+      <div class="modal-header">
+        <span class="modal-icon">🩺🌸</span>
+        <h2>Para la mejor Dra. Vanessa</h2>
+      </div>
+      <div class="modal-body">
+        <p>Vanessa,</p>
+        <p>Quería tener este pequeño detalle contigo para sacarte una sonrisa. Tu dedicación, empatía y la energía linda que transmites todos los días en el hospital te hacen única.</p>
+        <p>¡Sigue brillando siempre y nunca olvides lo increíble que eres en todo lo que haces!</p>
+        <p class="signature">Con mucho cariño y admiración. ✨</p>
+      </div>
+      <button class="btn btn-primary btn-full" id="btnModalCloseAction">Gracias 🌿</button>
+    </div>
+  </div>
+
+  <!-- Script interactivo -->
+  <script src="script.js"></script>
+</body>
+</html>

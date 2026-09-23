@@ -1,0 +1,286 @@
+/* RESET & BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #f4f8f5 0%, #e8f3ec 50%, #d8ece0 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  color: #385040;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* PÉTALOS FLOTANTES */
+#petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 15px 0px 15px 0px;
+  opacity: 0.6;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) translateX(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(50px);
+    opacity: 0.2;
+  }
+}
+
+/* TARJETA GLASSMORPHISM */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  padding: 28px 20px 24px 20px;
+  width: 100%;
+  max-width: 390px;
+  box-shadow: 0 12px 32px rgba(56, 80, 64, 0.08);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  background: #e2f0e6;
+  color: #4a7356;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.card-header .sub-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #698c72;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-header .main-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #2b4233;
+}
+
+/* RAMO DE FLORES SVG */
+.bouquet-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.hint-tap {
+  font-size: 0.75rem;
+  color: #7a9c83;
+  margin-top: 6px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.bouquet-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(56, 80, 64, 0.06));
+}
+
+.flower-group {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.flower-group:hover, .flower-group:active {
+  transform: scale(1.18) rotate(5deg);
+}
+
+/* TOAST / MENSAJE INTERACTIVO */
+.toast-note {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d4e6da;
+  padding: 10px 16px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: #3b5a45;
+  margin-bottom: 18px;
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* BOTONES */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  padding: 13px 20px;
+  border-radius: 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #5b8c68;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(91, 140, 104, 0.25);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+  background: #4e7a5a;
+}
+
+.btn-secondary {
+  background: #eaf3ed;
+  color: #43684e;
+  border: 1px solid #d2e4d7;
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+  background: #ddebd3;
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 66, 51, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 26px 22px;
+  max-width: 350px;
+  width: 100%;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #8fa896;
+  cursor: pointer;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.modal-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #2b4233;
+}
+
+.modal-body p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #4a6352;
+  margin-bottom: 10px;
+}
+
+.modal-body .signature {
+  font-style: italic;
+  color: #61876c;
+  margin-top: 12px;
+  font-weight: 500;
+}
